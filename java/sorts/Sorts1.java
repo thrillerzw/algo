@@ -7,7 +7,7 @@ import java.util.Arrays;
  * <p>
  * Author: Zheng
  */
-public class Sorts {
+public class Sorts1 {
 
     // 冒泡排序，a是数组，n表示数组大小
     public static void bubbleSort(int[] a, int n) {

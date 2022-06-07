@@ -1,6 +1,3 @@
-package linked.singlelist;
-
-
 import java.util.Scanner;
 
 /**

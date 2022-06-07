@@ -1,3 +1,4 @@
+package array;
 public class GenericArray<T> {
     private T[] data;
     private int size;

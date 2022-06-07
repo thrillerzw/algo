@@ -1,3 +1,4 @@
+package hashtable;
 /**
  * @Description:散列表实现
  * @Author: Hoda

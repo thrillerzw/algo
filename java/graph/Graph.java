@@ -1,4 +1,4 @@
-package com.study.graph;
+package graph;
 
 import java.util.LinkedList;
 import java.util.Queue;

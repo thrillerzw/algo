@@ -1,5 +1,3 @@
-package linkedlist;
-
 /**
  * 1) 单链表反转
  * 2) 链表中环的检测
@@ -10,6 +8,19 @@ package linkedlist;
  * Author: Zheng
  */
 public class LinkedListAlgo {
+
+  public static void main(String[] args) {
+    Node node1 = createNode(1);
+    Node node2 = createNode(2);
+    node1.next=node2;
+    System.out.println("---原始链表");
+    printAll(node1);
+    System.out.println("---单链表反转结果");
+    reverse(node1);
+    printAll(node2);
+    System.out.println("---");
+    printAll(node1);
+  }
 
   // 单链表反转
   public static Node reverse(Node list) {
@@ -24,6 +35,8 @@ public class LinkedListAlgo {
   }
 
   // 检测环
+  //假设有两个学生A和B在跑道上跑步，两人从相同起点出发，假设A的速度为2m/s，B的速度为1m/s,结果会发生什么？答案很简单，A绕了跑道一圈之后会追上B！
+  //将这个问题延伸到链表中，跑道就是链表，我们可以设置两个指针，a跑的快，b跑的慢，如果链表有环，那么当程序执行到某一状态时，a==b。如果链表没有环，程序会执行到a==NULL，结束。
   public static boolean checkCircle(Node list) {
     if (list == null) return false;
 
@@ -82,12 +95,13 @@ public class LinkedListAlgo {
     // 有序链表合并 Leetcode 21 
     /**
  	* Definition for singly-linked list.
- 	* public class ListNode {
- 	*     int val;
- 	*     ListNode next;
- 	*     ListNode(int x) { val = x; }
- 	* }
-	*/
+ 	*/
+    public class ListNode {
+ 	    int val;
+ 	    ListNode next;
+ 	   ListNode(int x) { val = x; }
+ 	}
+
    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode soldier = new ListNode(0); //利用哨兵结点简化实现难度 技巧三
         ListNode p = soldier;
