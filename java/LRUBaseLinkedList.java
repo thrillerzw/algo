@@ -11,7 +11,7 @@ public class LRUBaseLinkedList<T> {
     /**
      * 默认链表容量
      */
-    private final static Integer DEFAULT_CAPACITY = 10;
+    private final static Integer DEFAULT_CAPACITY =3;
 
     /**
      * 头结点
@@ -111,17 +111,15 @@ public class LRUBaseLinkedList<T> {
             ptr = ptr.getNext();
         }
 
-        SNode tmp = ptr.getNext();
         ptr.setNext(null);
-        tmp = null;
         length--;
     }
 
     private void printAll() {
-        SNode node = headNode.getNext();
-        while (node != null) {
-            System.out.print(node.getElement() + ",");
-            node = node.getNext();
+        SNode p = headNode.next;
+        while (p != null) {
+            System.out.print(p.element + ",");
+            p = p.next;
         }
         System.out.println();
     }
@@ -161,12 +159,12 @@ public class LRUBaseLinkedList<T> {
             this.next = next;
         }
     }
-
+    //添加 1,2,3 输出 3,2,1 。再添加4，输出4,3,2,淘汰了1
     public static void main(String[] args) {
-        LRUBaseLinkedList list = new LRUBaseLinkedList();
+        LRUBaseLinkedList<String> list = new LRUBaseLinkedList<>();
         Scanner sc = new Scanner(System.in);
         while (true) {
-            list.add(sc.nextInt());
+            list.add(sc.next());
             list.printAll();
         }
     }

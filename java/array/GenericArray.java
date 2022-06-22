@@ -1,5 +1,35 @@
 package array;
+
+import java.util.Arrays;
+
 public class GenericArray<T> {
+
+    public static void main(String[] args) {
+        GenericArray<String> genericArray = new GenericArray<>(5);
+        genericArray.addFirst("a");
+        genericArray.addLast("b");
+        genericArray.printAll();
+
+        genericArray.remove(1);
+        genericArray.remove(0);
+
+        GenericArray<Integer> genericArray2 = new GenericArray<>(5);
+        genericArray2.addFirst(1);
+        genericArray2.addLast(2);
+        genericArray2.printAll();
+
+        String[] sa={"1","2"};
+        String[] strings = genericArray.toArray(sa);
+        String[] strings2 = genericArray.toArray2(sa);
+        System.out.println();
+    }
+    public  void printAll() {
+        for (int i = 0; i < size; ++i) {
+            System.out.print(data[i] + " ");
+        }
+        System.out.println();
+    }
+
     private T[] data;
     private int size;
 
@@ -7,6 +37,12 @@ public class GenericArray<T> {
     public GenericArray(int capacity) {
         data = (T[]) new Object[capacity];
         size = 0;
+    }
+    public T[] toArray(T[] a) {
+        return a;
+    }
+   public <T> T[] toArray2(T[] a) {
+        return a;
     }
 
     // 无参构造方法，默认数组容量为10
@@ -102,6 +138,7 @@ public class GenericArray<T> {
         if (size == data.length / 4 && data.length / 2 != 0) {
             resize(data.length / 2);
         }
+
 
         return ret;
     }

@@ -372,14 +372,14 @@ public class Sorts {
     }
 
     public static void main(String[] args) {
-        int[] arr = {2, 1, 5, 6, 8, 4, 12, 11, 13, 15, 7, 9, 0, -1};
+        int[] arr = {2, 3, 1, 5,4, 0, -1};
 //        bubbleSort(arr);
-//        bubbleSort2(arr);
+//          bubbleSort2(arr);
 //        selectSort(arr);
 //        mergeSort(arr, 0, arr.length - 1);
-//        quickSort4(arr, 0, arr.length - 1);
+          quickSort4(arr, 0, arr.length - 1);
 
-        Arrays.sort(arr);
+//        Arrays.sort(arr);
         print(arr);
 
     }
