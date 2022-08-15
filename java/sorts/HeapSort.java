@@ -1,9 +1,16 @@
 package sorts;
 
+import java.util.Arrays;
+
 /**
  * 堆排序
  */
 public class HeapSort {
+    public static void main(String[] args) {
+        int[] data = new int[]{4, 6, 5, 3, 7, 1, 2};
+        sort(data);
+        System.out.println(Arrays.toString(data));
+    }
 
     /**
      * 排序

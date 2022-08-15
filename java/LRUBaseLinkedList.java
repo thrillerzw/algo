@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /**
  * 基于单链表LRU算法（java）
  *
@@ -62,9 +60,7 @@ public class LRUBaseLinkedList<T> {
      * @param preNode
      */
     private void deleteElemOptim(SNode preNode) {
-        SNode temp = preNode.getNext();
-        preNode.setNext(temp.getNext());
-        temp = null;
+        preNode.next=preNode.next.next;
         length--;
     }
 
@@ -74,8 +70,7 @@ public class LRUBaseLinkedList<T> {
      * @param data
      */
     private void intsertElemAtBegin(T data) {
-        SNode next = headNode.getNext();
-        headNode.setNext(new SNode(data, next));
+        headNode.next=(new SNode(data, headNode.next));
         length++;
     }
 
@@ -87,11 +82,11 @@ public class LRUBaseLinkedList<T> {
      */
     private SNode findPreNode(T data) {
         SNode node = headNode;
-        while (node.getNext() != null) {
-            if (data.equals(node.getNext().getElement())) {
+        while (node.next != null) {
+            if (data.equals(node.next.data)) {
                 return node;
             }
-            node = node.getNext();
+            node = node.next;
         }
         return null;
     }
@@ -102,23 +97,23 @@ public class LRUBaseLinkedList<T> {
     private void deleteElemAtEnd() {
         SNode ptr = headNode;
         // 空链表直接返回
-        if (ptr.getNext() == null) {
+        if (ptr.next == null) {
             return;
         }
 
         // 倒数第二个结点
-        while (ptr.getNext().getNext() != null) {
-            ptr = ptr.getNext();
+        while (ptr.next.next != null) {
+            ptr = ptr.next;
         }
 
-        ptr.setNext(null);
+        ptr.next=null;
         length--;
     }
 
     private void printAll() {
         SNode p = headNode.next;
         while (p != null) {
-            System.out.print(p.element + ",");
+            System.out.print(p.data + ",");
             p = p.next;
         }
         System.out.println();
@@ -126,46 +121,33 @@ public class LRUBaseLinkedList<T> {
 
     public class SNode<T> {
 
-        private T element;
+        private T data;
 
         private SNode next;
 
-        public SNode(T element) {
-            this.element = element;
+        public SNode(T data) {
+            this.data = data;
         }
 
-        public SNode(T element, SNode next) {
-            this.element = element;
+        public SNode(T data, SNode next) {
+            this.data = data;
             this.next = next;
         }
 
-        public SNode() {
-            this.next = null;
-        }
-
-        public T getElement() {
-            return element;
-        }
-
-        public void setElement(T element) {
-            this.element = element;
-        }
-
-        public SNode getNext() {
-            return next;
-        }
-
-        public void setNext(SNode next) {
-            this.next = next;
-        }
+        public SNode() { }
     }
     //添加 1,2,3 输出 3,2,1 。再添加4，输出4,3,2,淘汰了1
     public static void main(String[] args) {
         LRUBaseLinkedList<String> list = new LRUBaseLinkedList<>();
-        Scanner sc = new Scanner(System.in);
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        list.add("4");
+        list.printAll();
+       /* Scanner sc = new Scanner(System.in);
         while (true) {
             list.add(sc.next());
             list.printAll();
-        }
+        }*/
     }
 }

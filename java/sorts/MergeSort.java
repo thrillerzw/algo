@@ -22,7 +22,8 @@ public class MergeSort {
     mergeSortInternally(a, q+1, r);
 
     // 将A[p...q]和A[q+1...r]合并为A[p...r]
-    merge(a, p, q, r);
+//    merge(a, p, q, r);
+    mergeBySentry(a, p, q, r);
   }
 
   private static void merge(int[] a, int p, int q, int r) {
@@ -92,5 +93,19 @@ public class MergeSort {
         arr[k++] = rightArr[j++];
       }
     }
+  }
+
+
+  public static void main(String[] args) {
+    int[] arr = {2, 3, 1, 5,4, 0, -1};
+    mergeSort(arr,arr.length);
+    print(arr);
+  }
+
+  public static void print(int[] arr) {
+    for (int i : arr) {
+      System.out.print(i + " ");
+    }
+    System.out.println();
   }
 }

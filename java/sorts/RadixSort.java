@@ -1,4 +1,7 @@
 package sorts;
+
+import java.util.Arrays;
+
 /**
  * @Description:基数排序
  * @Author: Hoda
@@ -7,6 +10,11 @@ package sorts;
  * @Modified Date:
  */
 public class RadixSort {
+    public static void main(String[] args) {
+        int[] data = new int[]{4, 6, 5, 3, 7, 1, 2};
+        radixSort(data);
+        System.out.println(Arrays.toString(data));
+    }
 
     /**
      * 基数排序

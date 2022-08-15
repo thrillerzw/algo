@@ -47,4 +47,17 @@ public class CountingSort {
     }
   }
 
+  public static void main(String[] args) {
+    int[] arr = {2, 3,2,1, 4};
+    countingSort(arr,arr.length);
+    print(arr);
+  }
+
+  public static void print(int[] arr) {
+    for (int i : arr) {
+      System.out.print(i + " ");
+    }
+    System.out.println();
+  }
+
 }

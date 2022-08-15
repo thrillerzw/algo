@@ -49,7 +49,7 @@ public class SkipList2 {
         }
         Node newNode = new Node(level);
         newNode.data = value;
-        Node update[] = new Node[level];
+        Node[] update = new Node[level];
         for (int i = 0; i < level; ++i) {
             update[i] = head;
         }

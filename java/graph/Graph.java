@@ -71,7 +71,7 @@ public class Graph {
     public static void main(String[] args) {
         Graph graph = new Graph(8);
         graph.addEdge(0,1);
-        graph.addEdge(0,3);
+//        graph.addEdge(0,3);
         graph.addEdge(1,2);
         graph.addEdge(1,4);
         graph.addEdge(2,5);
@@ -79,10 +79,10 @@ public class Graph {
         graph.addEdge(4,6);
         graph.addEdge(5,7);
         graph.addEdge(6,7);
-//        graph.bfs(0,6);
+        graph.bfs(0,6);
 
         // 深度优先
-        graph.dfs(0, 6);
+//        graph.dfs(0, 6);
 
     }
 
@@ -96,6 +96,7 @@ public class Graph {
             prev[i] = -1;
         }
         recurDfs(s, t, visited, prev);
+        System.out.println("found="+found);
         print(prev, s, t);
     }
 

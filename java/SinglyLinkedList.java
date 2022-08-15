@@ -10,11 +10,13 @@ public class SinglyLinkedList {
 
     public Node findByValue(int value) {
         Node p = head;
-        while (p != null && p.data != value) {
+        while (p != null) {
+            if( p.data == value){
+                return p;
+            }
             p = p.next;
         }
-
-        return p;
+        return null;
     }
 
     public Node findByIndex(int index) {
@@ -37,6 +39,9 @@ public class SinglyLinkedList {
     }
 
     public void insertToHead(Node newNode) {
+        if(newNode==null){
+            return;
+        }
         if (head == null) {
             head = newNode;
         } else {
@@ -59,7 +64,7 @@ public class SinglyLinkedList {
             while(q.next != null){
                 q = q.next;
             }
-            newNode.next = q.next;
+//            newNode.next = q.next;
             q.next = newNode;
         }
     }
@@ -122,7 +127,7 @@ public class SinglyLinkedList {
     }
 
     public void deleteByValue(int value) {
-        if (head == null) return;
+   /*     if (head == null) return;
 
         Node p = head;
         Node prev = null;
@@ -137,23 +142,23 @@ public class SinglyLinkedList {
             head = head.next;
         } else {
             prev.next = prev.next.next;
-        }
+        }*/
 
         // 可重复删除指定value的代码
-        /*
+
            if (head != null && head.data == value) {
            head = head.next;
            }
 
            Node pNode = head;
            while (pNode != null) {
-           if (pNode.next.data == data) {
+           if (pNode.next.data == value) {
            pNode.next = pNode.next.next;
            continue;
            }
            pNode = pNode.next;
            }
-         */
+
     }
 
     public void printAll() {
@@ -313,7 +318,7 @@ public class SinglyLinkedList {
         //int data[] = {1,2,5};
         //int data[] = {1,2,2,1};
        // int data[] = {1,2,5,2,1};
-        int data[] = {1,2,5,3,1};
+        int data[] = {1,1,5,3,1};
 
         for(int i =0; i < data.length; i++){
             //link.insertToHead(data[i]);
@@ -328,11 +333,14 @@ public class SinglyLinkedList {
 
         System.out.println("打印原始:");
         link.printAll();
+        link.deleteByValue(1);
+        link.printAll();
+      /*
         if (link.palindrome()){
             System.out.println("回文");
         }else{
             System.out.println("不是回文");
-        }
+        }*/
     }
 
 }

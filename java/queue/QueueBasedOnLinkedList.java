@@ -7,18 +7,27 @@ package queue;
  */
 public class QueueBasedOnLinkedList {
 
+  public static void main(String[] args) {
+    QueueBasedOnLinkedList queue = new QueueBasedOnLinkedList();
+    queue.enqueue("1");
+    queue.enqueue("2");
+    queue.enqueue("3");
+    queue.printAll();
+
+  }
+
   // 队列的队首和队尾
   private Node head = null;
   private Node tail = null;
 
   // 入队
   public void enqueue(String value) {
+    Node newNode = new Node(value, null);
     if (tail == null) {
-      Node newNode = new Node(value, null);
       head = newNode;
       tail = newNode;
     } else {
-      tail.next = new Node(value, null);
+      tail.next = newNode;
       tail = tail.next;
     }
   }
@@ -44,7 +53,7 @@ public class QueueBasedOnLinkedList {
     System.out.println();
   }
 
-  private static class Node {
+    class Node {
     private String data;
     private Node next;
 
@@ -53,9 +62,6 @@ public class QueueBasedOnLinkedList {
       this.next = next;
     }
 
-    public String getData() {
-      return data;
-    }
   }
 
 }

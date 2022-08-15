@@ -8,6 +8,13 @@ package hashtable;
  */
 public class HashTable<K, V> {
 
+    public static void main(String[] args) {
+        HashTable<String, String> map = new HashTable<>();
+        map.put("a","1");
+        map.put("a","2");
+        System.out.println(map.get("a"));
+    }
+
     /**
      * 散列表默认长度
      */
@@ -37,7 +44,7 @@ public class HashTable<K, V> {
         table = (Entry<K, V>[]) new Entry[DEFAULT_INITAL_CAPACITY];
     }
 
-    static class Entry<K, V> {
+     class Entry<K, V> {
         K key;
 
         V value;

@@ -193,4 +193,13 @@ public class LRUBaseHashTable<K, V> {
         }
         System.out.println();
     }
+
+    public static void main(String[] args) {
+        LRUBaseHashTable<String,String> lru = new LRUBaseHashTable<String,String>(3);
+        lru.add("1","a");
+        lru.add("2","b");
+        lru.add("3","c");
+        lru.add("4","d");
+        lru.printAll();
+    }
 }

@@ -4,6 +4,15 @@ package queue;
  * Created by wangzheng on 2018/10/9.
  */
 public class CircularQueue {
+
+  public static void main(String[] args) {
+    CircularQueue circularQueue = new CircularQueue(2);
+    circularQueue.enqueue("1");
+    circularQueue.enqueue("2");
+    circularQueue.enqueue("3");
+    circularQueue.printAll();
+
+  }
   // 数组：items，数组大小：n
   private String[] items;
   private int n = 0;

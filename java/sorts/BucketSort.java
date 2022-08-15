@@ -8,6 +8,20 @@ package sorts;
  */
 public class BucketSort {
 
+    public static void main(String[] args) {
+        int[] arr = {2, 2, 1, 4};
+        bucketSort(arr,2);
+        print(arr);
+    }
+
+    public static void print(int[] arr) {
+        for (int i : arr) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+
+
     /**
      * 桶排序
      *
